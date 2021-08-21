@@ -22,3 +22,8 @@ class Advert(models.Model):
 
     def __str__(self):
         return f'{self.title}: {self.author}'
+
+    class Meta:
+        permissions = [
+            ('сan_approve', 'Can approve')
+        ]
