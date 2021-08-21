@@ -125,6 +125,7 @@ class AdvertUpdateView(PermissionRequiredMixin, UpdateView):
         return self.get_object().author == self.request.user
 
 
+
 class AdvertDeleteView(PermissionRequiredMixin, DeleteView):
     model = Advert
     template_name = 'adverts/delete.html'
