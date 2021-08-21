@@ -1,4 +1,5 @@
 from django.shortcuts import redirect
+from django.urls import reverse
 from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView
 
 from advert.models import Advert
@@ -56,3 +57,11 @@ class AdvertUpdateView(UpdateView):
         ad.author = self.request.user
         ad.save()
         return redirect('advert_list')
+
+
+class AdvertDeleteView(DeleteView):
+    model = Advert
+    template_name = 'adverts/delete.html'
+
+    def get_success_url(self):
+        return reverse('advert_list')
