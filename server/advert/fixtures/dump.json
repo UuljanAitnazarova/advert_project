@@ -1,0 +1,126 @@
+[
+{
+  "model": "advert.advert",
+  "pk": 3,
+  "fields": {
+    "title": "Vincent van Gogh's picture \"Café Terrace at Night\"",
+    "category": "ad",
+    "description": "Café Terrace at Night is an 1888 oil painting by the Dutch artist Vincent van Gogh. It is also known as The Cafe Terrace on the Place du Forum, and, when first exhibited in 1891, was entitled Coffeehouse, in the evening (Café, le soir)...",
+    "image": "images/51hAuS2j4OL_OgOzqKH.jpeg",
+    "price": 10000000,
+    "author": 1,
+    "created_date": "2021-08-21",
+    "modified_date": "2021-08-21T09:49:46.037Z",
+    "post_date": "2021-08-21T09:49:46.037Z",
+    "moderated": false,
+    "rejected": false
+  }
+},
+{
+  "model": "advert.advert",
+  "pk": 4,
+  "fields": {
+    "title": "Vincent van Gogh's picture \"Irises\"\"",
+    "category": "ad",
+    "description": "Irises is one of several paintings of irises by the Dutch artist Vincent van Gogh, and one of a series of paintings he made at the Saint Paul-de-Mausole asylum in Saint-Rémy-de-Provence, France, in the last year before his death in 1890.",
+    "image": "images/1200px-Irises-Vincent_van_Gogh.jpeg",
+    "price": 2000000,
+    "author": 1,
+    "created_date": "2021-08-21",
+    "modified_date": "2021-08-21T09:51:00.487Z",
+    "post_date": "2021-08-21T09:51:00.487Z",
+    "moderated": true,
+    "rejected": false
+  }
+},
+{
+  "model": "advert.advert",
+  "pk": 6,
+  "fields": {
+    "title": "test",
+    "category": "ad",
+    "description": "cghjko",
+    "image": "images/Сделаите_все_возможное_а_в_остальном_положитесь_на_судьбу-2.jpg",
+    "price": 45678,
+    "author": 2,
+    "created_date": "2021-08-21",
+    "modified_date": "2021-08-21T10:39:46.235Z",
+    "post_date": "2021-08-21T10:39:46.235Z",
+    "moderated": true,
+    "rejected": false
+  }
+},
+{
+  "model": "advert.advert",
+  "pk": 7,
+  "fields": {
+    "title": "Spiritual course",
+    "category": "ad",
+    "description": "Welcome!",
+    "image": "images/Сделаите_все_возможное_а_в_остальном_положитесь_на_судьбу_DkmpBAA.jpg",
+    "price": 3000,
+    "author": 2,
+    "created_date": "2021-08-21",
+    "modified_date": "2021-08-21T10:50:45.445Z",
+    "post_date": "2021-08-21T10:50:45.445Z",
+    "moderated": false,
+    "rejected": false
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$3FNvUJ5qpMkkn6DcQhlmOr$QNy64wN0raIFJqBWttn+9OPCoycmtrns/oK6Xzm+kZ8=",
+    "last_login": "2021-08-21T12:26:37.236Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2021-08-21T04:43:02Z",
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$EAgDgsnU5qNWuXnmu27WfM$tRd8/zqYmm9BwUeBM3Txne1ubuZvVSn36PJKKIVzb1U=",
+    "last_login": "2021-08-21T11:54:34.956Z",
+    "is_superuser": false,
+    "username": "jenny",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-08-21T08:32:13Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$M0yi5StCjABtmuITwmqSa1$qtuJ9Ed1z4aPU1kemCe2Tv49yNLMHHD3Qcd4547BptM=",
+    "last_login": "2021-08-21T11:32:50.128Z",
+    "is_superuser": false,
+    "username": "test",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-08-21T08:57:34.909Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
