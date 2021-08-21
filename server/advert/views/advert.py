@@ -1,4 +1,7 @@
-from django.shortcuts import redirect
+from datetime import datetime
+
+from django.http import JsonResponse
+from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse
 from django.db.models import Q
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
@@ -135,3 +138,32 @@ class AdvertDeleteView(PermissionRequiredMixin, DeleteView):
 
     def has_permission(self):
         return self.get_object().author == self.request.user
+
+
+class ApprovalAdvertDetailView(PermissionRequiredMixin, DetailView):
+    model = Advert
+    template_name = 'adverts/approval_detail.html'
+    context_object_name = 'ad'
+    permission_required = 'advert.approve'
+
+    def has_permission(self):
+        return super().has_permission()
+
+
+def approve(request, *args, **kwargs):
+    if request.is_ajax and request.method == "POST":
+        ad = get_object_or_404(Advert, pk=list(dict(request.POST).keys())[0])
+        ad.moderated = True
+        ad.published_at = datetime.now()
+        ad.save()
+        return JsonResponse({'message': 'Success!'}, status=200)
+    return JsonResponse({"error": ""}, status=400, safe=False)
+
+
+def reject(request, *args, **kwargs):
+    if request.is_ajax and request.method == "POST":
+        ad = get_object_or_404(Advert, pk=list(dict(request.POST).keys())[0])
+        ad.rejected = True
+        ad.save()
+        return JsonResponse({'message': 'Rejected'}, status=200)
+    return JsonResponse({"error": ""}, status=400, safe=False)

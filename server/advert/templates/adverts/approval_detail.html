@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    {% include "partial/ad_info.html" %}
+    <div id="{{ ad.pk }}">
+        <button onclick="approve(event)">Approve</button>
+        <button onclick="reject(event)">Reject</button>
+    </div>
+
+
+{% endblock %}
+
+
+
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRFToken': getCookie('csrftoken')
+        }
+    });
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    let approve = function (e){
+        e.preventDefault();
+
+
+        $.ajax({
+            url: '{% url "approve"  %}',
+            type: 'post',
+            data: e.target.parentElement.id,
+            success: function(response) {
+                console.log(response)
+                alert(response['message'])
+
+            },
+            failure: function(response) {
+                console.log(response)
+                alert('error');
+            }
+        });
+    }
+
+    let reject = function (e){
+        e.preventDefault();
+        console.log(e.target.parentElement.id)
+
+
+        $.ajax({
+            url: '{% url "reject"  %}',
+            type: 'post',
+            data: e.target.parentElement.id,
+            success: function(response) {
+                console.log(response)
+                alert(response['message'])
+
+            },
+            failure: function(response) {
+                console.log(response)
+                alert('error');
+            }
+        });
+
+        </script>

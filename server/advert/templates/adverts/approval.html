@@ -1,6 +1,7 @@
 
 {% extends 'base.html' %}
 
+
 {% block content %}
     <div class="mt-4">
         {% if ads %}
@@ -16,7 +17,7 @@
             <img class="card-img-top" src="/uploads/images/istockphoto-1222357475-612x612.jpeg" alt="no photo">
         {% endif %}
           <div class="card-body">
-              <h4 class="card-title">{{ ad.title }}</h4>
+              <h4 class="card-title"><a href="{% url 'approve_detail' ad.pk %}">{{ ad.title }}</a> </h4>
               <p class="card-text">{{ ad.description }}</p>
               <p class="card-text">author: {{ ad.author }}</p>
               <p class="card-text">category: {{ ad.category }}</p>
