@@ -5,8 +5,8 @@
 
     {% include "partial/ad_info.html" %}
     <div id="{{ ad.pk }}">
-        <button onclick="approve(event)">Approve</button>
-        <button onclick="reject(event)">Reject</button>
+        <a id='approve' onclick="approve_function(event)">Approve</a>
+        <a onclick="reject_function(event)">Reject</a>
     </div>
 
 
@@ -15,6 +15,7 @@
 
 
 <script>
+    let approve = document.getElementById('#approve')
     $.ajaxSetup({
         headers: {
             'X-CSRFToken': getCookie('csrftoken')
@@ -35,14 +36,15 @@
         return cookieValue;
     }
 
-    let approve = function (e){
+    let approve_function = (e) => {
         e.preventDefault();
 
-
+        console.log(e.target.parentElement.id)
         $.ajax({
             url: '{% url "approve"  %}',
             type: 'post',
             data: e.target.parentElement.id,
+
             success: function(response) {
                 console.log(response)
                 alert(response['message'])
@@ -55,7 +57,7 @@
         });
     }
 
-    let reject = function (e){
+    let reject_function = function (e){
         e.preventDefault();
         console.log(e.target.parentElement.id)
 
@@ -74,5 +76,3 @@
                 alert('error');
             }
         });
-
-        </script>
