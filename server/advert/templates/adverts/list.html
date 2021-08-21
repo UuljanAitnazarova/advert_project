@@ -3,6 +3,9 @@
 
 {% block nav %}
     <li class="menu-right" ><a href="{% url 'advert_create' %}" class="nav-link">Create Advert</a></li>
+    {% if request.user.is_staff %}
+        <li class="menu-right" ><a href="{% url 'advert_approve' %}" class="nav-link">Approve Adverts</a></li>
+    {% endif %}
 {% endblock %}
 
 {% block content %}
@@ -16,13 +19,14 @@
           <div class="card-body">
               <h4 class="card-title"><a href="{% url 'advert_detail' ad.pk %}">{{ ad.title }}</a></h4>
               <p class="card-text">{{ ad.description }}</p>
-              <p class="card-text">author: {{ ad.author }}</p>
+              <p class="card-text"><a href="{% url 'profile' ad.author.pk %}"> author: {{ ad.author }}</a></p>
               <p class="card-text">category: {{ ad.category }}</p>
               {% if ad.price %}
                     <p class="card-text">price: {{ ad.price }}</p>
               {% endif %}
                 <p class="card-text">created date: {{ ad.created_at }}</p>
               <p class="card-text">updated date: {{ ad.modified_date }}</p>
+                <p class="card-text">Phone Number: {{ ad.author.profile.phone_number }}</p>
           </div>
 {#          <div class="card-body">#}
 {#            <a href="{% url 'profile' ad.author.pk %}" class="card-link">Author: {{ ad.author }}</a>#}

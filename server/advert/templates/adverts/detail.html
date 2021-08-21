@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% block nav %}
-    <li class="menu-right" ><a href="{% url 'advert_update' ad.pk %}" class="nav-link">Update Advert</a></li>
-    <li class="menu-right" ><a href="{% url 'advert_delete' ad.pk %}" class="nav-link">Delete Advert</a></li>
+    {% if request.user == ad.author %}
+        <li class="menu-right" ><a href="{% url 'advert_update' ad.pk %}" class="nav-link">Update Advert</a></li>
+        <li class="menu-right" ><a href="{% url 'advert_delete' ad.pk %}" class="nav-link">Delete Advert</a></li>
+    {% endif %}
 {% endblock %}
 
 
