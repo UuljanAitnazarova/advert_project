@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h1>Personal Profile {{ user_obj.get_full_name|default:user_obj.username }}</h1>
+    <p>Username: {{ user_obj.username }}</p>
+    <p>Contact information: {{ user_obj.profile.phone_number }}</p>
+
+
+        {% for ad in adverts %}
+            <div class="card" style="width: 18rem;">
+            {% if ad.image %}
+                <img class="card-img-top"  src="{{ ad.image.url }}" width="400" height="250" alt="ad picture">
+            {% else %}
+                <img class="card-img-top" src="/uploads/images/istockphoto-1222357475-612x612.jpeg" alt="no photo">
+            {% endif %}
+              <div class="card-body">
+                  <h4 class="card-title"><a href="{% url 'advert_detail' ad.pk %}">{{ ad.title }}</a></h4>
+                  <p class="card-text">{{ ad.description }}</p>
+                  <p class="card-text"><a href="{% url 'profile' user.pk %}"> author: {{ ad.author }}</a></p>
+                  <p class="card-text">category: {{ ad.category }}</p>
+                  {% if ad.price %}
+                        <p class="card-text">price: {{ ad.price }}</p>
+                  {% endif %}
+                    <p class="card-text">created date: {{ ad.created_at }}</p>
+                  <p class="card-text">updated date: {{ ad.modified_date }}</p>
+                    <p class="card-text">Phone Number: {{ ad.author.profile.phone_number }}</p>
+                    <p class="card-text">moderated: {{ ad.moderated }}</p>
+              </div>
+        {% endfor %}
+
+
+
+{% endblock %}
