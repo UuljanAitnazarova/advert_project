@@ -1,6 +1,10 @@
 
 {% extends 'base.html' %}
 
+{% block nav %}
+    <li class="menu-right" ><a href="{% url 'advert_create' %}" class="nav-link">Create Advert</a></li>
+{% endblock %}
+
 {% block content %}
     {% for ad in ads %}
         <div class="card" style="width: 18rem;">
@@ -10,7 +14,7 @@
             <img class="card-img-top" src="/uploads/images/istockphoto-1222357475-612x612.jpeg" alt="no photo">
         {% endif %}
           <div class="card-body">
-              <h4 class="card-title">{{ ad.title }}</h4>
+              <h4 class="card-title"><a href="{% url 'advert_detail' ad.pk %}">{{ ad.title }}</a></h4>
               <p class="card-text">{{ ad.description }}</p>
               <p class="card-text">author: {{ ad.author }}</p>
               <p class="card-text">category: {{ ad.category }}</p>

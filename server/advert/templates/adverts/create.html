@@ -2,7 +2,7 @@
 
 
 {% block content %}
-    <form action="{% url 'advert_create' %}" method="post">
+    <form action="{% url 'advert_create' %}" method="post" enctype="multipart/form-data">
         {% include "partial/form.html" with button_text="Save" %}
     </form>
 {% endblock %}
