@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <form action="{% url 'advert_update' ad.pk %}" method="post" enctype="multipart/form-data">
+        {% include "partial/form.html" with button_text="Save" %}
+    </form>
+
+{% endblock %}
