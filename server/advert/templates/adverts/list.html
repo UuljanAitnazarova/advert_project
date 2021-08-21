@@ -9,6 +9,13 @@
 {% endblock %}
 
 {% block content %}
+        <div class="mt-4">
+        {% if ads %}
+            {% include "partial/search_form.html" %}
+        {% endif %}
+        </div>
+
+
     {% for ad in ads %}
         <div class="card" style="width: 18rem;">
         {% if ad.image %}
